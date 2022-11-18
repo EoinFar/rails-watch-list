@@ -1,2 +1,8 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<h1>Add a movie to a bookmark</h1>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
+
+<li><%= list.name %> <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, list_path(list), data: {turbo_method: :delete} %></li>
